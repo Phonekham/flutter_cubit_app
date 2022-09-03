@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit/cubit/app_cubit.dart';
 import 'package:flutter_cubit/misc/colors.dart';
-import 'package:flutter_cubit/widgets/app_large_text.dart';
+import 'package:flutter_cubit/widgets/app_text.dart';
 import 'package:flutter_cubit/widgets/responsive_button.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -35,14 +37,14 @@ class _WelcomePageState extends State<WelcomePage> {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         AppText(
                           text: 'text',
                         ),
                         AppText(
                           text: 'text2',
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         SizedBox(
@@ -51,11 +53,19 @@ class _WelcomePageState extends State<WelcomePage> {
                                 text: 'text ww we wewe fdrv e 2',
                                 color: AppColors.textColor2,
                                 size: 14)),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
-                        ResponsiveButton(
-                          width: 120,
+                        GestureDetector(
+                          onTap: () {
+                            BlocProvider.of<AppCubit>(context).getData();
+                          },
+                          child: const SizedBox(
+                            width: 200,
+                            child: ResponsiveButton(
+                              width: 120,
+                            ),
+                          ),
                         )
                       ],
                     ),

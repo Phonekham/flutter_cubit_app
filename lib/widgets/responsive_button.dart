@@ -15,7 +15,7 @@ class ResponsiveButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: AppColors.buttonBackground),
+          color: AppColors.mainColor),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [Image.asset('img/button-one.png')],
